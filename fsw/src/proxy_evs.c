@@ -23,9 +23,6 @@
 static CFE_EVS_BinFilter_t  PROXY_EventFilters[] =
        {  /* Event ID    mask */
           {PROXY_STARTUP_INF_EID,       0x0000},
-          {PROXY_COMMAND_ERR_EID,       0x0000},
-          {PROXY_COMMANDNOP_INF_EID,    0x0000},
-          {PROXY_COMMANDRST_INF_EID,    0x0000},
        };
 
 /** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
