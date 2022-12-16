@@ -10,8 +10,8 @@
 ** See "NOSA GSC-18364-1.pdf"
 */
 
-#ifndef _proxy_evs_h_
-#define _proxy_evs_h_
+#ifndef proxy_evs_h
+#define proxy_evs_h
 
 /*
 ** Required header files.
@@ -34,4 +34,4 @@
 void Proxy_EvsMain(void);
 void Proxy_EvsInit(void);
 
-#endif /* _proxy_evs_h_ */
+#endif /* proxy_evs_h */

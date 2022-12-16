@@ -35,11 +35,11 @@ static CFE_EVS_BinFilter_t  PROXY_EventFilters[] =
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  * *  * * * * **/
 void Proxy_EvsMain( void )
 {
-    uint32 RunStatus = CFE_ES_APP_RUN;
+    uint32 RunStatus = CFE_ES_RunStatus_APP_RUN;
 
     Proxy_EvsInit();
 
-    while (CFE_ES_RunLoop(&RunStatus) == TRUE)
+    while (CFE_ES_RunLoop(&RunStatus) == true)
     {
         sleep(1);
     }
@@ -56,18 +56,13 @@ void Proxy_EvsMain( void )
 void Proxy_EvsInit(void)
 {
     /*
-    ** Register the app with Executive services
-    */
-    CFE_ES_RegisterApp() ;
-
-    /*
     ** Register the events
     */ 
     CFE_EVS_Register(PROXY_EventFilters,
                      sizeof(PROXY_EventFilters)/sizeof(CFE_EVS_BinFilter_t),
-                     CFE_EVS_BINARY_FILTER);
+                     CFE_EVS_EventFilter_BINARY);
 
-    CFE_EVS_SendEvent (PROXY_STARTUP_INF_EID, CFE_EVS_INFORMATION,
+    CFE_EVS_SendEvent (PROXY_STARTUP_INF_EID, CFE_EVS_EventType_INFORMATION,
                        "PROXY EVS Initialized. Version %d.%d.%d.%d",
                        PROXY_EVS_MAJOR_VERSION,
                        PROXY_EVS_MINOR_VERSION, 
